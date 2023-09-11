@@ -1,0 +1,8 @@
+name: step1-wf
+on: push
+jobs: 
+    my-job:
+        runs-on: ubuntu-latest
+        steps:
+            - name:  step1
+              run: echo "Hello from GH Actions"
