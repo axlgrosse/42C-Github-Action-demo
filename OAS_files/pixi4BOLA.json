@@ -14,7 +14,7 @@
     },
     "servers": [
         {
-            "url": "https://photo-demo.westeurope.cloudapp.azure.com/api"
+            "url": "https://photo-demo.westeurope.cloudapp.azure.com/axl/api"
         }
     ],
     "tags": [
@@ -66,10 +66,9 @@
                                     },
                                     "pass": {
                                         "type": "string",
-                                        "format": "password",
+                                        "format": "o:common:password",
                                         "example": "mygood2!pass",
-                                        "x-42c-sample": "hellopixi",
-                                        "x-42c-format": "o:standard:password"
+                                        "x-42c-sample": "hellopixi"
                                     }
                                 }
                             }
