@@ -68,7 +68,8 @@
                                       "type": "string",
                                       "format": "o:common:password",
                                       "example": "mygood2!pass",
-                                      "x-42c-sample": "hellopixi"
+                                      "x-42c-sample": "hellopixi",
+                                      "maxLength": 64
                                     }
                                 }
                             }
