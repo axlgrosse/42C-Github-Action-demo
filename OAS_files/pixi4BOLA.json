@@ -67,7 +67,7 @@
                                     "pass": {
                                       "type": "string",
                                       "format": "o:common:password",
-                                      "example": "myGood2!pass",
+                                      "example": "mygood2!pass",
                                       "x-42c-sample": "hellopixi"
                                     }
                                 }
