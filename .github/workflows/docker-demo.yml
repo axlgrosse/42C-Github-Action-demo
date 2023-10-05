@@ -16,4 +16,4 @@ jobs:
           scanUser: userscan-run@acme.com
           scanPwd: hellopixi
           platformService: services.demolabs.42crunch.cloud:8001
-        run: (docker run -e PLATFORM_SERVICE=${{env.platformService}} -e SCAN_TOKEN=${{env.scanToken}} -e SCAN42C_user=${env.scanUser} -e SCAN42C_pass=${env.scanPwd} -e SCAN42C_SECURITY_COMMON_ACCESS_TOKEN=${env.accessToken})
+        run: docker run -e PLATFORM_SERVICE=${{env.platformService}} -e SCAN_TOKEN=${{env.scanToken}} -e SCAN42C_user=${env.scanUser} -e SCAN42C_pass=${env.scanPwd} -e SCAN42C_SECURITY_COMMON_ACCESS_TOKEN=${env.accessToken}
