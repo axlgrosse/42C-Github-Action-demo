@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: 42crunch/scand-agent:v2.0.0
-      env:
-        scanToken=scan_e5aab4b8-9c9f-44bd-9a3e-c020224cbbaf
-        accessToken=eyJhbGciOiJSUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3Byb2ZpbGUiOnsiX2lkIjoiODNhYjEyYmEtMTlmMy00NTliLWEzMTItZDA2M2I3OTg2NDIxIiwiZW1haWwiOiJ1c2Vyc2Nhbi1ydW5AYWNtZS5jb20iLCJwYXNzd29yZCI6ImhlbGxvcGl4aSIsIm5hbWUiOiJVc2VyIENvbW1vbiIsImFjY291bnRfYmFsYW5jZSI6MTAwMCwiaXNfYWRtaW4iOmZhbHNlLCJvbmJvYXJkaW5nX2RhdGUiOiIyMDIzLTA5LTIxVDA3OjU1OjQ2LjYzNloifSwiaWF0IjoxNjk2MzQ5MjQwLCJleHAiOjE2OTYzNTEwNDAsImF1ZCI6InBpeGlVc2VycyIsImlzcyI6Imh0dHBzOi8vaXNzdWVyLjQyY3J1bmNoLmRlbW8iLCJzdWIiOiJ1c2Vyc2Nhbi1ydW5AYWNtZS5jb20ifQ.TdgWVMcE_rSbVhFiepJG3ewnLPMXhmjaUmx2RLInqfzVsZ2YVz1j0BucGL5tsKL8p8CR6_VxPQVnvDsmJRt1WspomyGF6Eolc4rndpeTm7Eu9Ez9PTZ2T-KQ_nxO-7Riq4xc6HTMtwtSdbxnG7M2W6OIQpXzjOpN9kkbChORmOXwYo7eLhdvsl9uwsyxmXXE9x3nDPYsRE53-jdd2PmltfxcTbtAknb4Jz-CFYjzCbyt_QPC_aRS377ULjYMbqpclXvuMB7xxinTAHE4omPGTzjEjAU2QXdf7Xz8BdobPN3mLecwRPHKluAPiKyhjo_yOg7H2RWHIynvC_eIkbmvBg
-        scanUser=userscan-run@acme.com
-        scanPwd=hellopixi
-        platformService=services.demolabs.42crunch.cloud:8001
       options: --cpus 1
     steps:
-      - name: Runscan
-      run: docker run -e PLATFORM_SERVICE=${{env.platformService}} -e SCAN_TOKEN=${{env.scanToken}} -e SCAN42C_user=${env.scanUser} -e SCAN42C_pass=${env.scanPwd} -e SCAN42C_SECURITY_COMMON_ACCESS_TOKEN=${env.accessToken}
+      - name: run-scan
+        env:
+          scanToken: scan_e5aab4b8-9c9f-44bd-9a3e-c020224cbbaf
+          accessToken: eyJhbGciOiJSUzM4NCIsInR5cCI6IkpXVCJ9.eyJ1c2VyX3Byb2ZpbGUiOnsiX2lkIjoiODNhYjEyYmEtMTlmMy00NTliLWEzMTItZDA2M2I3OTg2NDIxIiwiZW1haWwiOiJ1c2Vyc2Nhbi1ydW5AYWNtZS5jb20iLCJwYXNzd29yZCI6ImhlbGxvcGl4aSIsIm5hbWUiOiJVc2VyIENvbW1vbiIsImFjY291bnRfYmFsYW5jZSI6MTAwMCwiaXNfYWRtaW4iOmZhbHNlLCJvbmJvYXJkaW5nX2RhdGUiOiIyMDIzLTA5LTIxVDA3OjU1OjQ2LjYzNloifSwiaWF0IjoxNjk2MzQ5MjQwLCJleHAiOjE2OTYzNTEwNDAsImF1ZCI6InBpeGlVc2VycyIsImlzcyI6Imh0dHBzOi8vaXNzdWVyLjQyY3J1bmNoLmRlbW8iLCJzdWIiOiJ1c2Vyc2Nhbi1ydW5AYWNtZS5jb20ifQ.TdgWVMcE_rSbVhFiepJG3ewnLPMXhmjaUmx2RLInqfzVsZ2YVz1j0BucGL5tsKL8p8CR6_VxPQVnvDsmJRt1WspomyGF6Eolc4rndpeTm7Eu9Ez9PTZ2T-KQ_nxO-7Riq4xc6HTMtwtSdbxnG7M2W6OIQpXzjOpN9kkbChORmOXwYo7eLhdvsl9uwsyxmXXE9x3nDPYsRE53-jdd2PmltfxcTbtAknb4Jz-CFYjzCbyt_QPC_aRS377ULjYMbqpclXvuMB7xxinTAHE4omPGTzjEjAU2QXdf7Xz8BdobPN3mLecwRPHKluAPiKyhjo_yOg7H2RWHIynvC_eIkbmvBg
+          scanUser: userscan-run@acme.com
+          scanPwd: hellopixi
+          platformService: services.demolabs.42crunch.cloud:8001
+        run: (docker run -e PLATFORM_SERVICE=${{env.platformService}} -e SCAN_TOKEN=${{env.scanToken}} -e SCAN42C_user=${env.scanUser} -e SCAN42C_pass=${env.scanPwd} -e SCAN42C_SECURITY_COMMON_ACCESS_TOKEN=${env.accessToken})
