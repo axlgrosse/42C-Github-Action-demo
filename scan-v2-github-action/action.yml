@@ -1,0 +1,36 @@
+# action.yml
+name: '42Crunch Scan V2'
+description: 'run a 42Crunch confomance scan'
+inputs:
+  PLATFORM-SERVICE:  
+    description: 'host and port of the platform service'
+    required: true
+    default: 'services.demolabs.42crunch.cloud:8001'
+  SCAN-TOKEN:  
+    description: 'Token of the scan config'
+    required: true
+    default: 'scan_e5aab4b8-9c9f-xxxx-9a3e-c020224cbbaf'
+  SCAN42C-USER: 
+    description: 'User to get access token '
+    required: true
+    default: 'userscan-run@acme.com'
+  SCAN42C-PASS: 
+    description: 'Password of the scan user'
+    required: true
+    default: 'hellopixi'
+  SCAN42C-SECURITY-ACCESS-TOKEN:
+    description: 'x-access-token to execute happy path '
+    required: true
+    default: 'xxx .xxx.xxx'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: '42crunch/scand-agent:v2.0.0'
+  args:
+    - PLATFORM_SERVICE=${{inputs.PLATFORM-SERVICE}}
+    - SCAN_TOKEN=${{inputs.SCAN-TOKEN}}
+    - SCAN42C_user=${{inputs.SCAN42C-USER}}  
+    - SCAN42C_pass=${{inputs.SCAN42C-PASS}}
+    - SCAN42C_SECURITY_COMMON_ACCESS_TOKEN=${{inputs.SCAN42C-SECURITY-ACCESS-TOKEN}}
