@@ -7,7 +7,7 @@ jobs:
     steps:
     - id: step1
       run: | 
-        response=$(curl -k -d "user=scan-user@acme.com&pass=hellopixi" -X POST https://photo-demo.westeurope.cloudapp.azure.com/axl/api/user/login | jq -r '.token')
+        response=$(curl -k -d "user=pixiadmin@demo.mail&pass=adminpixi" -X POST https://photo-demo.westeurope.cloudapp.azure.com/axl/api/user/login | jq -r '.token')
         echo "response from curl= $response"
         
         docker pull 42crunch/scand-agent:v2.0.0
