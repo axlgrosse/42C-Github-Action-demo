@@ -1,0 +1,72 @@
+        "/picture/upload": {
+            "post": {
+                "tags": [
+                    "pictures"
+                ],
+                "description": "Upload image file as user picture",
+                "summary": "Attach picture to user account",
+                "operationId": "uploadPicture",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ConfirmationMessage"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "invalid or missing token",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AuthenticationError"
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "unexpected error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorMessage"
+                                }
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "contents": {
+                                        "type": "string",
+                                        "pattern": "^[A-Za-z0-9+/]+={0,2}$",
+                                        "format": "binary",
+                                        "maxLength": 100000
+                                    },
+                                    "title": {
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9\\s]*$",
+                                        "maxLength": 100
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": true,
+                    "description": "File to upload"
+                },
+                "security": [
+                    {
+                        "access-token": []
+                    }
+                ]
+            }
+        },
