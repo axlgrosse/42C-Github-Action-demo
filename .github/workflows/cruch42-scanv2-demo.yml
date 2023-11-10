@@ -1,6 +1,6 @@
 name: "42Crunch REST API Dynamic Security Testing"
 
-on: push
+on: pull_request
 jobs:
   Run-Scan:
     runs-on: ubuntu-latest
@@ -11,4 +11,4 @@ jobs:
         echo "response from curl= $response"
         
         docker pull 42crunch/scand-agent:v2.0.0
-        docker run -e SCAN_TOKEN=scan_984f9187-d737-4b75-96da-bdcfe90c7ee9 -e SCAN42C_SECURITY_ACCESS_TOKEN=$response -e PLATFORM_SERVICE=services.demolabs.42crunch.cloud:8001 -e SCAN42C_user=userscan-run@acme.com -e SCAN42C_pass=hellopixi 42crunch/scand-agent:v2.0.0
+        docker run -e SCAN_TOKEN=scan_06b25bc0-b4c7-4293-a0f3-105ec9b93da0 -e SCAN42C_SECURITY_ACCESS_TOKEN=$response -e PLATFORM_SERVICE=services.demolabs.42crunch.cloud:8001 -e SCAN42C_user=userscan-run@acme.com -e SCAN42C_pass=hellopixi 42crunch/scand-agent:v2.0.0
