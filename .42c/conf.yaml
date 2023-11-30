@@ -1,0 +1,3 @@
+apis:
+  OAS_files/pixi4SCANV2.json:
+    alias: pixi-scan-test-api
