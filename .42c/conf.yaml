@@ -1,3 +1,5 @@
 apis:
   OAS_files/pixi4SCANV2.json:
     alias: pixi-scan-test-api
+  OAS_files/pixi4BOLA.json:
+    alias: pixi-app-api

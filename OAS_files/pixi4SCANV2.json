@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "Pixi SCAN TEST API",
+        "title": "Pixi SCAN V2",
         "description": "Pixi Photo Sharing API",
         "contact": {
             "email": "nicole.becher@owasp.org"
@@ -65,7 +65,7 @@
                                         "x-42c-format": "o:email"
                                     },
                                     "pass": {
-                                      "type": "string"
+                                        "type": "string"
                                     }
                                 }
                             }
@@ -546,7 +546,7 @@
                                 "properties": {
                                     "filename": {
                                         "type": "string",
-                                        "pattern": "^https?:\\/\\/(?:www\\.)?(?:42crunch\\.com|pixabay\\.com)\/(?:\\w+\/)*.+(.jpg|.png)$",
+                                        "pattern": "^https?:\\/\\/(?:www\\.)?(?:42crunch\\.com|pixabay\\.com)/(?:\\w+/)*.+(.jpg|.png)$",
                                         "minLength": 10,
                                         "example": "https://42crunch.com/wp-content/uploads/2022/02/LogoCr1.png",
                                         "maxLength": 256
